@@ -17,8 +17,6 @@ public class Doktor extends Kullanici{
 	
 	public Doktor() {}
 	
-	
-	
 	//Hastalarin listesi
 	public ArrayList<Kullanici> getHastaList() throws SQLException{
 		

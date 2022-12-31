@@ -27,8 +27,6 @@ public class DoktorEkrani extends JFrame {
 	private DefaultTableModel hastamodel = null;
 	private Object[] hastaData = null;
 	
-	
-
 	/**
 	 * Launch the application.
 	 */
