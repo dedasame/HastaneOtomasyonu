@@ -132,6 +132,10 @@ public class GirisEkrani extends JFrame{
 					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");
 					
 				}
+				
+				//tc ve sifreyi dogrula
+				//isim ve soyisim bossa yenihastaekrani degilse hasta ekranina gonder
+				
 				else {
 					
 					

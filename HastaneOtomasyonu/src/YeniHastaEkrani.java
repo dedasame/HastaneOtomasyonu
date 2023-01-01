@@ -25,7 +25,6 @@ public class YeniHastaEkrani extends JFrame {
 	}
 	
 	
-	
 	//Yapilacaklar 
 	//hastadan gerekli olan isim ve soyisim alinacak
 	//hastaekranina aktaracak
