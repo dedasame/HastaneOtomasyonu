@@ -30,7 +30,9 @@ public class Doktor extends Kullanici{
 			
 			while(rs.next()) {
 				obj = new Kullanici(rs.getInt("idhasta"),rs.getString("namehasta"),
-						rs.getString("surnamehasta"),rs.getString("tchasta"),rs.getString("passhasta"));
+						rs.getString("surnamehasta"),rs.getString("tchasta"),rs.getString("passhasta")
+						
+						);
 				
 				list.add(obj);			
 			}
@@ -41,7 +43,8 @@ public class Doktor extends Kullanici{
 		
 		return list;
 	}
-	
 
+	
+	
 	
 }

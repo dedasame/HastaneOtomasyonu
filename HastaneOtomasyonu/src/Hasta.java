@@ -7,7 +7,4 @@ public class Hasta extends Kullanici{
 
 	
 	
-	
-	
-	
 }

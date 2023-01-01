@@ -14,6 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,6 +28,7 @@ public class GirisEkrani extends JFrame{
 	private JTextField tcdoktor;
 	private JPasswordField passdoktor;
 	private VeriTabani vt = new VeriTabani();
+	
 
 	
 	/**
@@ -44,6 +46,30 @@ public class GirisEkrani extends JFrame{
 			}
 		});
 	}
+	
+	//hasta kayit fonksiyonu
+	
+	public boolean hastaKayit() throws SQLException {
+		
+		String query = "INSERT INTO hasta" + "(tchasta,passhasta) VALUES" + "(?,?)";
+		int key = 0;
+		try {
+			Connection c = vt.baglan();
+			Statement st = c.createStatement();
+			PreparedStatement ps = c.prepareStatement(query); 
+			ps.setString(1,tchasta.getText());
+			ps.setString(2, passhasta.getText());
+			ps.executeUpdate();
+			key = 1;
+		}catch ( Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(key==0) return false;
+		
+		return true;
+	}
+
 
 	/**
 	 * Create the frame.
@@ -96,6 +122,8 @@ public class GirisEkrani extends JFrame{
 		passhasta.setBounds(271, 107, 226, 37);
 		panelhasta.add(passhasta);
 		
+
+		
 		JButton btngiris = new JButton("GIRIS");
 		btngiris.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -107,6 +135,7 @@ public class GirisEkrani extends JFrame{
 				else {
 					
 					
+			
 					
 				}
 		
@@ -116,20 +145,40 @@ public class GirisEkrani extends JFrame{
 		btngiris.setBounds(298, 200, 199, 75);
 		panelhasta.add(btngiris);
 		
+		
+		
+		
+		
 		JButton btnkayitol = new JButton("KAYIT OL");
 		btnkayitol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				boolean aynitc=false;
+				/*
+				//tc kontrol mekanizmasi butun hastalara bakiyor
+				for( ) {
+				}
+				*/
+	
 				if(tchasta.getText().length()==0 || passhasta.getText().length()==0) {
 					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");
 				}
-				else {
-					
-					
-					
+				else if(aynitc==true){
+					JOptionPane.showMessageDialog(null,"Girdiginiz T.C. ile coktan bir kayit yapilmis");
 				}
 				
-				
+				//hastayi veri tabanina kayit etmek icin
+				else {
+					try {
+						boolean kontrol = hastaKayit();
+						
+					} catch (SQLException e1) {
+						
+						e1.printStackTrace();
+					}
+					JOptionPane.showMessageDialog(null,"Kayit Basarili!");
+				}
+
 			}
 		});
 		btnkayitol.setFont(new Font("Tahoma", Font.PLAIN, 30));

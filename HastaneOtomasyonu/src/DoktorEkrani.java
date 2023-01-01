@@ -16,16 +16,17 @@ import java.util.Date;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 public class DoktorEkrani extends JFrame {
 
-	
 	
 	static Doktor doc = new Doktor();
 	private JPanel contentPane;
 	private JTable hastaliste;
 	private DefaultTableModel hastamodel = null;
 	private Object[] hastaData = null;
+	private JTextField textField;
 	
 	/**
 	 * Launch the application.
@@ -63,8 +64,8 @@ public class DoktorEkrani extends JFrame {
 			hastaData[1] = doc.getHastaList().get(i).getName();
 			hastaData[2] = doc.getHastaList().get(i).getSurname();
 			hastamodel.addRow(hastaData);
-			
 		}
+		
 		
 		setTitle("Doktor Sistemi");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -114,7 +115,24 @@ public class DoktorEkrani extends JFrame {
 		
 		JPanel Randevular = new JPanel();
 		Randevular.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Randevular", null, Randevular, null);
+		tabbedPane.addTab("Hasta Bilgileri", null, Randevular, null);
+		Randevular.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Hasta T.C.");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setBounds(29, 10, 106, 31);
+		Randevular.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField.setBounds(174, 10, 212, 31);
+		Randevular.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("GOSTER");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_1.setBounds(438, 10, 113, 31);
+		Randevular.add(btnNewButton_1);
 			
 		SimpleDateFormat sekil = new SimpleDateFormat("d/M/y");	
         Date now = new Date();
@@ -122,6 +140,7 @@ public class DoktorEkrani extends JFrame {
 		lbltarih.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lbltarih.setBounds(463, 10, 113, 39);
 		contentPane.add(lbltarih);
+		
 		
 		
 		

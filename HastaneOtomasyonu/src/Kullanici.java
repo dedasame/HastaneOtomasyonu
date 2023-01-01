@@ -17,8 +17,6 @@ public class Kullanici {
 	
 	public Kullanici() {}
 	
-	
-	
 	public int getId() {
 		return id;
 	}
