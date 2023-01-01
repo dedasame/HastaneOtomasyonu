@@ -104,8 +104,12 @@ public class GirisEkrani extends JFrame{
 					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");
 					
 				}
-				
-				
+				else {
+					
+					
+					
+				}
+		
 			}
 		});
 		btngiris.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -116,9 +120,12 @@ public class GirisEkrani extends JFrame{
 		btnkayitol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
 				if(tchasta.getText().length()==0 || passhasta.getText().length()==0) {
 					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");
+				}
+				else {
+					
+					
 					
 				}
 				

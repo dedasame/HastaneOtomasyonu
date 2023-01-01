@@ -115,14 +115,15 @@ public class DoktorEkrani extends JFrame {
 		JPanel Randevular = new JPanel();
 		Randevular.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Randevular", null, Randevular, null);
-		
-		
+			
 		SimpleDateFormat sekil = new SimpleDateFormat("d/M/y");	
         Date now = new Date();
 		JLabel lbltarih = new JLabel(sekil.format(now).toString());
 		lbltarih.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lbltarih.setBounds(478, 10, 98, 39);
+		lbltarih.setBounds(463, 10, 113, 39);
 		contentPane.add(lbltarih);
+		
+		
 		
 	}
 }
