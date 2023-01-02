@@ -15,7 +15,7 @@ public class Doktor extends Kullanici{
 		super(id, name, surname, tc, pass);
 	}
 	
-	public Doktor() {}
+	public Doktor() {}		
 	
 	//Hastalarin listesi
 	public ArrayList<Kullanici> getHastaList() throws SQLException{
@@ -37,13 +37,14 @@ public class Doktor extends Kullanici{
 				list.add(obj);			
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return list;
 	}
-
+	
+	
+	
 	
 	
 	

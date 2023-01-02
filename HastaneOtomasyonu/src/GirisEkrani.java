@@ -159,9 +159,16 @@ public class GirisEkrani extends JFrame{
 				
 				boolean aynitc=false;
 				/*
+				 
+				 
 				//tc kontrol mekanizmasi butun hastalara bakiyor
+				 
+				 
 				for( ) {
+				
+				
 				}
+				
 				*/
 	
 				if(tchasta.getText().length()==0 || passhasta.getText().length()==0) {
@@ -169,6 +176,9 @@ public class GirisEkrani extends JFrame{
 				}
 				else if(aynitc==true){
 					JOptionPane.showMessageDialog(null,"Girdiginiz T.C. ile coktan bir kayit yapilmis");
+					tchasta.setText(null);
+					passhasta.setText(null);
+					
 				}
 				
 				//hastayi veri tabanina kayit etmek icin
@@ -181,6 +191,8 @@ public class GirisEkrani extends JFrame{
 						e1.printStackTrace();
 					}
 					JOptionPane.showMessageDialog(null,"Kayit Basarili!");
+					tchasta.setText(null);
+					passhasta.setText(null);
 				}
 
 			}

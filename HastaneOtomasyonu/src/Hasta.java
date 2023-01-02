@@ -5,6 +5,10 @@ public class Hasta extends Kullanici{
 		super(id, name, surname, tc, pass);
 	}
 
+	public Hasta() {}
+	
+	
+	
 	
 	
 }
