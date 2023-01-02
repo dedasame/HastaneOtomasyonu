@@ -1,8 +1,14 @@
+import java.awt.Container;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.text.SimpleDateFormat;
@@ -33,6 +39,9 @@ public class HastaEkrani extends JFrame {
 	}
 	
 	//Randevu alma ve silme islemleri yapilacak??
+	
+	
+	
 	
 	
 	
@@ -75,6 +84,11 @@ public class HastaEkrani extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_2.setBounds(188, 196, 209, 46);
 		contentPane.add(btnNewButton_2);
+		
+		
+		
+		
+		
 	}
 }
 
