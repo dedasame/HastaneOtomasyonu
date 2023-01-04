@@ -29,7 +29,6 @@ public class GirisEkrani extends JFrame{
 	private JPasswordField passdoktor;
 	private VeriTabani vt = new VeriTabani();
 	
-
 	
 	/**
 	 * Launch the application.
@@ -131,13 +130,6 @@ public class GirisEkrani extends JFrame{
 				JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");		
 			}
 			
-			
-			/*
-			//kodda hata var??
-			//tc ve sifreyi dogrula
-			//isim ve soyisim bossa yenihastaekrani degilse hasta ekranina gonder
-			*/
-			
 			try {
 				Connection baglanti = vt.baglan();
 				Statement st;
@@ -155,9 +147,9 @@ public class GirisEkrani extends JFrame{
 						 hasta.setSurname(rs.getString("surnamehasta"));
 						 //giris basarili
 						 
-						 if(hasta.getName().equals(null)||hasta.getSurname().equals(null)) {
-							 YeniHastaEkrani yhe = new YeniHastaEkrani(hasta);
-							 yhe.setVisible(true);
+						 if(hasta.getName()==null||hasta.getSurname()==null) {
+							 YeniHastaEkrani a = new YeniHastaEkrani(hasta);
+							 a.setVisible(true);
 							 //giris ekranini kapat
 							 dispose();
 							 break;
@@ -169,8 +161,7 @@ public class GirisEkrani extends JFrame{
 							 break;
 						 } 
 					 } 
-				 }
-				 
+				 } 
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -190,10 +181,7 @@ public class GirisEkrani extends JFrame{
 				
 				boolean aynitc=false;
 	 
-				//tc kontrol mekanizmasi butun hastalara bakan bir metot
-				
-				
-				
+				//tc kontrol mekanizmasi butun hastalara bakan bir metot + burada once metotu kullan
 				
 				
 	
@@ -285,7 +273,6 @@ public class GirisEkrani extends JFrame{
 								 //doktor ekranini ac
 								 DoktorEkrani de = new DoktorEkrani(doc);
 								 de.setVisible(true);
-								 
 								 //giris ekranini kapat
 								 dispose();	
 								 

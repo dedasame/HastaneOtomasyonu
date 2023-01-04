@@ -7,7 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JButton;
@@ -20,7 +23,7 @@ import com.toedter.calendar.JDateChooser;
 
 public class RandevuAlmaEkrani extends JFrame {
 	
-	
+	VeriTabani vt = new VeriTabani();
 	
 	static Hasta hasta = new Hasta();
 	private JPanel contentPane;
@@ -128,7 +131,6 @@ public class RandevuAlmaEkrani extends JFrame {
 				
 				if(indexbolum>=0 && indexdoktor>=0) {
 					//hastanin veri tabanindaki doktorid ve bolumid degistirilecek
-					
 					
 					
 					

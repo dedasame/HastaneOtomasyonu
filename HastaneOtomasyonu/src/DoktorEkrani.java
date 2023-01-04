@@ -133,6 +133,21 @@ public class DoktorEkrani extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(438, 10, 113, 31);
 		Randevular.add(btnNewButton_1);
+		
+		JLabel lblbilgi1 = new JLabel("Adı: ");
+		lblbilgi1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblbilgi1.setBounds(29, 72, 212, 42);
+		Randevular.add(lblbilgi1);
+		
+		JLabel lblbilgi2 = new JLabel("Soyadı: ");
+		lblbilgi2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblbilgi2.setBounds(28, 124, 213, 42);
+		Randevular.add(lblbilgi2);
+		
+		JLabel lblid = new JLabel("HastaID: ");
+		lblid.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblid.setBounds(29, 176, 106, 31);
+		Randevular.add(lblid);
 			
 		SimpleDateFormat sekil = new SimpleDateFormat("d/M/y");	
         Date now = new Date();

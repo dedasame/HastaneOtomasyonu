@@ -8,10 +8,15 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class YeniHastaEkrani extends JFrame {
 	
+	VeriTabani vt = new VeriTabani();
 	
 	static Hasta hasta = new Hasta();
 	private JPanel contentPane;
@@ -33,12 +38,6 @@ public class YeniHastaEkrani extends JFrame {
 			}
 		});
 	}
-	
-	
-	//Yapilacaklar 
-	//hastadan gerekli olan isim ve soyisim alinacak
-	//hastaekranina aktaracak
-	
 	
 	
 	/**
@@ -89,12 +88,24 @@ public class YeniHastaEkrani extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//bos olup olmadigi kontrol edilecek 
-				//veri tabanina gonderilecek
+				String query = "INSERT INTO hasta" + "(namehasta,surnamehasta) VALUES" + "(?,?)";
 				
+				try {
+					Connection c = vt.baglan();
+					Statement st = c.createStatement();
+					PreparedStatement ps = c.prepareStatement(query); 
+					ps.setString(1,hastaisim.getText());
+					ps.setString(2,hastasoyisim.getText());
+					ps.executeUpdate();
+					
+					
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 				
-				
-				
+				HastaEkrani a = new HastaEkrani(hasta);
+				a.setVisible(true);
+				dispose();
 				
 			}
 		});
