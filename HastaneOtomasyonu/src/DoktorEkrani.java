@@ -125,6 +125,10 @@ public class DoktorEkrani extends JFrame {
 		hastaliste = new JTable(hastamodel);
 		scrollHastalar.setViewportView(hastaliste);
 		
+		
+		//Hata var. Girilen kimlikteki hastayi cekemiyor
+		
+		/*
 		JPanel Randevular = new JPanel();
 		Randevular.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Hasta Bilgileri", null, Randevular, null);
@@ -140,8 +144,7 @@ public class DoktorEkrani extends JFrame {
 		textField.setBounds(174, 10, 212, 31);
 		Randevular.add(textField);
 		textField.setColumns(10);
-		
-		
+		*/
 		
 		
 		JButton btnNewButton_1 = new JButton("GOSTER");
@@ -179,6 +182,8 @@ public class DoktorEkrani extends JFrame {
 
 			}
 		});
+		
+		/*
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(438, 10, 113, 31);
 		Randevular.add(btnNewButton_1);
@@ -197,7 +202,7 @@ public class DoktorEkrani extends JFrame {
 		lblid.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblid.setBounds(29, 176, 357, 42);
 		Randevular.add(lblid);
-			
+		*/
 		SimpleDateFormat sekil = new SimpleDateFormat("d/M/y");	
         Date now = new Date();
 		JLabel lbltarih = new JLabel(sekil.format(now).toString());

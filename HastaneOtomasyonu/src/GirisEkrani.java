@@ -161,7 +161,11 @@ public class GirisEkrani extends JFrame{
 							 break;
 						 } 
 					 } 
+					 
 				 } 
+				 	
+				 
+				 
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
@@ -181,7 +185,7 @@ public class GirisEkrani extends JFrame{
 				
 				boolean aynitc=false;
 				
-				//tc kontrol mekanizmasi butun hastalara bakan bir metot + burada once metotu kullan
+				//tc kontrol
 				Connection c = vt.baglan();
 				Statement st = null;
 				ResultSet rs = null;
@@ -292,9 +296,7 @@ public class GirisEkrani extends JFrame{
 								 dispose();	
 								 
 							 }
-							 else {
-								 JOptionPane.showMessageDialog(null,"T.C. ya da Sifre Hatali!");
-							 } 
+							 
 						 }
 							
 					} catch (SQLException e1) {
