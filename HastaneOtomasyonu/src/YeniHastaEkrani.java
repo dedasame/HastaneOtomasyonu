@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class YeniHastaEkrani extends JFrame {
-
+	
+	
+	static Hasta hasta = new Hasta();
 	private JPanel contentPane;
 	private JTextField hastaisim;
 	private JTextField hastasoyisim;
@@ -23,7 +25,7 @@ public class YeniHastaEkrani extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					YeniHastaEkrani frame = new YeniHastaEkrani();
+					YeniHastaEkrani frame = new YeniHastaEkrani(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +44,7 @@ public class YeniHastaEkrani extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public YeniHastaEkrani() {
+	public YeniHastaEkrani(Hasta hasta) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 475);
 		contentPane = new JPanel();

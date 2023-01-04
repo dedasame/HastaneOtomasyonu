@@ -29,7 +29,7 @@ public class HastaEkrani extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HastaEkrani frame = new HastaEkrani();
+					HastaEkrani frame = new HastaEkrani(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +48,7 @@ public class HastaEkrani extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public HastaEkrani() {
+	public HastaEkrani(Hasta hasta) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 475);
 		contentPane = new JPanel();

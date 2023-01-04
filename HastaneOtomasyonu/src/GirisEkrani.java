@@ -47,7 +47,7 @@ public class GirisEkrani extends JFrame{
 		});
 	}
 	
-	//hasta kayit fonksiyonu
+	//hasta kayit metodu
 	
 	public boolean hastaKayit() throws SQLException {
 		
@@ -121,28 +121,62 @@ public class GirisEkrani extends JFrame{
 		passhasta.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		passhasta.setBounds(271, 107, 226, 37);
 		panelhasta.add(passhasta);
-		
 
 		
 		JButton btngiris = new JButton("GIRIS");
 		btngiris.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				if(tchasta.getText().length()==0 || passhasta.getText().length()==0) {
-					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");
-					
-				}
-				
-				//tc ve sifreyi dogrula
-				//isim ve soyisim bossa yenihastaekrani degilse hasta ekranina gonder
-				
-				else {
-					
-					
+		public void actionPerformed(ActionEvent e) {
 			
-					
-				}
-		
+			if(tchasta.getText().length()==0 || passhasta.getText().length()==0) {
+				JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");		
+			}
+			
+			
+			/*
+			//kodda hata var??
+			//tc ve sifreyi dogrula
+			//isim ve soyisim bossa yenihastaekrani degilse hasta ekranina gonder
+			
+			try {
+				Connection baglanti = vt.baglan();
+				Statement st;
+				st = baglanti.createStatement();
+				ResultSet rs = st.executeQuery("SELECT * FROM hasta");
+				 while(rs.next()) {
+					 //bilgilerin veritabaniyla dogrulugu kontrol ediliyor
+					 if(tchasta.getText().equals(rs.getString("tchasta"))&&passhasta.getText().equals(rs.getString("passhasta"))){
+						
+						 Hasta hasta = new Hasta();
+						 hasta.setId(rs.getInt("idhasta"));
+						 hasta.setTc(rs.getString("tchasta"));
+						 hasta.setPass(rs.getString("passhasta"));
+						 hasta.setName(rs.getString("namehasta"));
+						 hasta.setSurname(rs.getString("surnamehasta"));
+						 //giris basarili
+						 
+						 if(hasta.getName().equals(null)||hasta.getSurname().equals(null)) {
+							 YeniHastaEkrani yhe = new YeniHastaEkrani(hasta);
+							 yhe.setVisible(true);
+							 //giris ekranini kapat
+							 dispose();
+							 break;
+						 }
+						 else {
+							 HastaEkrani he = new HastaEkrani(hasta);
+							 he.setVisible(true);
+							 dispose(); 
+							 break;
+						 } 
+					 }
+					 
+				 }
+				 
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			*/
+			
+			
 			}
 		});
 		btngiris.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -150,26 +184,20 @@ public class GirisEkrani extends JFrame{
 		panelhasta.add(btngiris);
 		
 		
-		
-		
-		
 		JButton btnkayitol = new JButton("KAYIT OL");
 		btnkayitol.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				boolean aynitc=false;
-				/*
-				 
-				 
-				//tc kontrol mekanizmasi butun hastalara bakiyor
-				 
-				 
-				for( ) {
+	 
+				//tc kontrol mekanizmasi butun hastalara bakan bir metot
 				
 				
-				}
 				
-				*/
+				
+				
+				
+				
 	
 				if(tchasta.getText().length()==0 || passhasta.getText().length()==0) {
 					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");
