@@ -14,6 +14,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JFormattedTextField.AbstractFormatter;
+import com.toedter.calendar.JDateChooser;
+
 
 public class RandevuAlmaEkrani extends JFrame {
 	
@@ -65,6 +68,13 @@ public class RandevuAlmaEkrani extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("ÇIKIŞ");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 GirisEkrani he = new GirisEkrani();
+				 he.setVisible(true);
+				 dispose(); 	
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBounds(426, 392, 150, 36);
 		contentPane.add(btnNewButton);
@@ -86,15 +96,28 @@ public class RandevuAlmaEkrani extends JFrame {
 		for(int i =0 ; i<3;i++) {
 			doktorlar.addItem(hasta.getDoktorList().get(i).getName()+" "+hasta.getDoktorList().get(i).getSurname());
 		}
-		contentPane.add(doktorlar);
+		contentPane.add(doktorlar);		
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(348, 228, 84, 36);
-		contentPane.add(comboBox);
+		JComboBox saatBox = new JComboBox();
+		saatBox.setBounds(348, 228, 84, 36);
+		contentPane.add(saatBox);
+		saatBox.addItem("08");
+		saatBox.addItem("09");
+		saatBox.addItem("10");
+		saatBox.addItem("11");
+		saatBox.addItem("12");
+		saatBox.addItem("13");
+		saatBox.addItem("14");
+		saatBox.addItem("15");
+		saatBox.addItem("16");
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(459, 228, 84, 36);
-		contentPane.add(comboBox_1);
+		JComboBox dakikaBox = new JComboBox();
+		dakikaBox.setBounds(459, 228, 84, 36);
+		contentPane.add(dakikaBox);
+		dakikaBox.addItem("00");
+		dakikaBox.addItem("15");
+		dakikaBox.addItem("30");
+		dakikaBox.addItem("45");
 		
 		JButton btnNewButton_2 = new JButton("Randevu Al");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -104,11 +127,12 @@ public class RandevuAlmaEkrani extends JFrame {
 				int indexdoktor = doktorlar.getSelectedIndex(); //doktor index
 				
 				if(indexbolum>=0 && indexdoktor>=0) {
-				
+					//hastanin veri tabanindaki doktorid ve bolumid degistirilecek
+					
+					
 					
 					
 				}
-				
 				else {
 					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");	
 				}		
@@ -138,5 +162,12 @@ public class RandevuAlmaEkrani extends JFrame {
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_5.setBounds(338, 78, 124, 36);
 		contentPane.add(lblNewLabel_5);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setBounds(348, 123, 195, 36);
+		contentPane.add(dateChooser);
+		
+
+		
 	}
 }

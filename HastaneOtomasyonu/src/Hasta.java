@@ -13,13 +13,13 @@ public class Hasta extends Kullanici{
 	Connection c = vt.baglan();
 	Statement st = null;
 	ResultSet rs = null;
-
+	
 	public Hasta(int id, String name, String surname, String tc, String pass) {
 		super(id, name, surname, tc, pass);
+		
 	}
 
-	public Hasta() {}
-	
+	public Hasta() {}	
 		//Hastaya bolumlerin listesini gosterir
 		public ArrayList<Bolum> getBolumList() throws SQLException{
 		
@@ -49,7 +49,7 @@ public class Hasta extends Kullanici{
 			DoktorList obj;
 			try {
 				st = c.createStatement();
-				rs = st.executeQuery("SELECT * FROM doktor");
+				rs = st.executeQuery("SELECT * FROM doktor" );
 				
 				while(rs.next()) {
 					obj = new DoktorList(rs.getInt("iddoktor"),rs.getString("namedoktor"),rs.getString("surnamedoktor"));

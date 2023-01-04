@@ -165,11 +165,10 @@ public class GirisEkrani extends JFrame{
 						 else {
 							 HastaEkrani he = new HastaEkrani(hasta);
 							 he.setVisible(true);
-							 dispose(); 
+							 dispose();
 							 break;
 						 } 
-					 }
-					 
+					 } 
 				 }
 				 
 			} catch (SQLException e1) {
@@ -192,8 +191,6 @@ public class GirisEkrani extends JFrame{
 				boolean aynitc=false;
 	 
 				//tc kontrol mekanizmasi butun hastalara bakan bir metot
-				
-				
 				
 				
 				

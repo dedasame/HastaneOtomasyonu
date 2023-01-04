@@ -5,7 +5,6 @@ public class Kullanici {
 	private String name,surname,tc,pass;
 	VeriTabani vt = new VeriTabani();
 	
-	
 	public Kullanici(int id, String name, String surname, String tc, String pass) {
 		super();
 		this.id = id;
