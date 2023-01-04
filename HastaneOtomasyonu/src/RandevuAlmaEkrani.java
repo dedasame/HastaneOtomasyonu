@@ -83,6 +83,13 @@ public class RandevuAlmaEkrani extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("GERİ");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 HastaEkrani he = new HastaEkrani(hasta);
+				 he.setVisible(true);
+				 dispose();
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(10, 392, 169, 36);
 		contentPane.add(btnNewButton_1);

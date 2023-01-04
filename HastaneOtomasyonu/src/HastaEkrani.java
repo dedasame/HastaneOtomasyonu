@@ -37,12 +37,6 @@ public class HastaEkrani extends JFrame {
 		});
 	}
 	
-	//Randevu alma ve silme islemleri yapilacak??
-	
-	
-	
-	
-	
 	
 	/**
 	 * Create the frame.

@@ -88,16 +88,17 @@ public class YeniHastaEkrani extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String query = "INSERT INTO hasta" + "(namehasta,surnamehasta) VALUES" + "(?,?)";
-				
+				//tcsi belli olani cagir ve namehasta + surnamehasta degistir.
 				try {
+					
+					String sql = "UPDATE hasta SET namehasta = ?, surnamehasta = ? WHERE tchasta = "+hasta.getTc();
 					Connection c = vt.baglan();
 					Statement st = c.createStatement();
-					PreparedStatement ps = c.prepareStatement(query); 
-					ps.setString(1,hastaisim.getText());
-					ps.setString(2,hastasoyisim.getText());
+					PreparedStatement ps = c.prepareStatement(sql);
+					ps.setString(1, hastaisim.getText());
+					ps.setString(2, hastasoyisim.getText());
 					ps.executeUpdate();
-					
+
 					
 				} catch (SQLException e1) {
 					e1.printStackTrace();
