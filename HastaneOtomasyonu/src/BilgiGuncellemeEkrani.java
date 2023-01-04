@@ -76,8 +76,8 @@ public class BilgiGuncellemeEkrani extends JFrame {
 					try {
 						Statement st = c.createStatement();
 						PreparedStatement ps = c.prepareStatement(sql);
-						ps.setString(1, lblname.getText());
-						ps.setString(2, lblsurname.getText());
+						ps.setString(1, newName.getText());
+						ps.setString(2, newSurname.getText());
 						ps.executeUpdate();
 						
 					} catch (SQLException e1) {

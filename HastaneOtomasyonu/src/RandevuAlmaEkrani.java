@@ -138,6 +138,18 @@ public class RandevuAlmaEkrani extends JFrame {
 				
 				if(indexbolum>=0 && indexdoktor>=0) {
 					//hastanin veri tabanindaki doktorid ve bolumid degistirilecek
+					String sql = "UPDATE hasta SET bolumid = ?, doktorid = ? WHERE tchasta = "+hasta.getTc();
+					Connection c = vt.baglan();
+					try {
+						Statement st = c.createStatement();
+						PreparedStatement ps = c.prepareStatement(sql);
+						ps.setInt(1, indexbolum+1);
+						ps.setInt(2, indexdoktor+1);
+						ps.executeUpdate();
+						
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
 					
 					
 					

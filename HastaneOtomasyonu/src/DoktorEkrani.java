@@ -5,12 +5,17 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTabbedPane;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.awt.event.ActionEvent;
@@ -20,13 +25,21 @@ import javax.swing.JTextField;
 
 public class DoktorEkrani extends JFrame {
 
-	
+	VeriTabani vt = new VeriTabani();
 	static Doktor doc = new Doktor();
 	private JPanel contentPane;
 	private JTable hastaliste;
 	private DefaultTableModel hastamodel = null;
 	private Object[] hastaData = null;
 	private JTextField textField;
+	Connection c = vt.baglan();
+	Statement st = null;
+	ResultSet rs = null;
+	
+	//Hasta bilgilerine erisim
+	public Hasta hasta = new Hasta();
+	public int hastaid;
+	public String hastaname,hastasurname;
 	
 	/**
 	 * Launch the application.
@@ -43,7 +56,6 @@ public class DoktorEkrani extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 * @throws SQLException 
@@ -129,24 +141,61 @@ public class DoktorEkrani extends JFrame {
 		Randevular.add(textField);
 		textField.setColumns(10);
 		
+		
+		
+		
 		JButton btnNewButton_1 = new JButton("GOSTER");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(textField.getText().length()==11) {
+
+					try {
+						st = c.createStatement();
+						String query= "SELECT * FROM hasta WHERE tchasta="+textField.getText();
+						ResultSet rs = st.executeQuery(query);
+						while(rs.next()) {
+							hastaid= rs.getInt("idhasta");
+							hastaname = rs.getString("namehasta");
+							hastasurname = rs.getString("surnamehasta");
+							
+							if(hastaid!=0) {
+								break;
+								}
+							else {
+								
+							}
+						}
+						
+						
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+
+				}
+				else {	
+					JOptionPane.showMessageDialog(null,"Hatali Kimlik Numarasi!");	
+				}
+
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(438, 10, 113, 31);
 		Randevular.add(btnNewButton_1);
 		
-		JLabel lblbilgi1 = new JLabel("Adı: ");
+		JLabel lblbilgi1 = new JLabel("Adı:   "+hastaname);
 		lblbilgi1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblbilgi1.setBounds(29, 72, 212, 42);
+		lblbilgi1.setBounds(29, 72, 357, 42);
 		Randevular.add(lblbilgi1);
 		
-		JLabel lblbilgi2 = new JLabel("Soyadı: ");
+		JLabel lblbilgi2 = new JLabel("Soyadı: "+hastasurname);
 		lblbilgi2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblbilgi2.setBounds(28, 124, 213, 42);
+		lblbilgi2.setBounds(28, 124, 358, 42);
 		Randevular.add(lblbilgi2);
 		
-		JLabel lblid = new JLabel("HastaID: ");
+		JLabel lblid = new JLabel("HastaID: "+hastaid);
 		lblid.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblid.setBounds(29, 176, 106, 31);
+		lblid.setBounds(29, 176, 357, 42);
 		Randevular.add(lblid);
 			
 		SimpleDateFormat sekil = new SimpleDateFormat("d/M/y");	

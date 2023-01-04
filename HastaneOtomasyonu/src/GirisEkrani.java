@@ -180,11 +180,26 @@ public class GirisEkrani extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				
 				boolean aynitc=false;
-	 
+				
 				//tc kontrol mekanizmasi butun hastalara bakan bir metot + burada once metotu kullan
+				Connection c = vt.baglan();
+				Statement st = null;
+				ResultSet rs = null;
+				try {
+					st = c.createStatement();
+					String query= "SELECT * FROM hasta";
+					rs = st.executeQuery(query);
+					while(rs.next()) {
+						if(rs.getString("tchasta").equals(tchasta.getText())) {
+							aynitc = true;
+							break;
+						}
+					}
+					
+				} catch (SQLException e2) {
+					e2.printStackTrace();
+				}
 				
-				
-	
 				if(tchasta.getText().length()==0 || passhasta.getText().length()==0) {
 					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");
 				}
