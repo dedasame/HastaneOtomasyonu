@@ -52,12 +52,12 @@ public class BilgiGuncellemeEkrani extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblname = new JLabel("New label");
+		JLabel lblname = new JLabel("ADINIZ:");
 		lblname.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblname.setBounds(10, 90, 276, 37);
 		contentPane.add(lblname);
 		
-		JLabel lblsurname = new JLabel("New label");
+		JLabel lblsurname = new JLabel("SOYADINIZ:");
 		lblsurname.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblsurname.setBounds(10, 142, 276, 37);
 		contentPane.add(lblsurname);

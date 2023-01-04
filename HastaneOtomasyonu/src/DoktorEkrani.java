@@ -128,7 +128,6 @@ public class DoktorEkrani extends JFrame {
 		
 		//Hata var. Girilen kimlikteki hastayi cekemiyor
 		
-		/*
 		JPanel Randevular = new JPanel();
 		Randevular.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Hasta Bilgileri", null, Randevular, null);
@@ -136,41 +135,32 @@ public class DoktorEkrani extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Hasta T.C.");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(29, 10, 106, 31);
+		lblNewLabel.setBounds(103, 83, 106, 31);
 		Randevular.add(lblNewLabel);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textField.setBounds(174, 10, 212, 31);
+		textField.setBounds(257, 83, 212, 31);
 		Randevular.add(textField);
 		textField.setColumns(10);
-		*/
-		
 		
 		JButton btnNewButton_1 = new JButton("GOSTER");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				if(textField.getText().length()==11) {
-
+					
 					try {
 						st = c.createStatement();
 						String query= "SELECT * FROM hasta WHERE tchasta="+textField.getText();
 						ResultSet rs = st.executeQuery(query);
-						while(rs.next()) {
 							hastaid= rs.getInt("idhasta");
 							hastaname = rs.getString("namehasta");
 							hastasurname = rs.getString("surnamehasta");
+							HastaBilgiEkrani a = new HastaBilgiEkrani(hastaid,hastaname,hastasurname,doc);
+							a.setVisible(true);
+							dispose();
 							
-							if(hastaid!=0) {
-								break;
-								}
-							else {
-								
-							}
-						}
-						
-						
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
@@ -178,31 +168,18 @@ public class DoktorEkrani extends JFrame {
 				}
 				else {	
 					JOptionPane.showMessageDialog(null,"Hatali Kimlik Numarasi!");	
+					textField.setText(null);
 				}
 
 			}
 		});
 		
-		/*
+		
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(438, 10, 113, 31);
+		btnNewButton_1.setBounds(182, 168, 132, 45);
 		Randevular.add(btnNewButton_1);
 		
-		JLabel lblbilgi1 = new JLabel("Adı:   "+hastaname);
-		lblbilgi1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblbilgi1.setBounds(29, 72, 357, 42);
-		Randevular.add(lblbilgi1);
 		
-		JLabel lblbilgi2 = new JLabel("Soyadı: "+hastasurname);
-		lblbilgi2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblbilgi2.setBounds(28, 124, 358, 42);
-		Randevular.add(lblbilgi2);
-		
-		JLabel lblid = new JLabel("HastaID: "+hastaid);
-		lblid.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblid.setBounds(29, 176, 357, 42);
-		Randevular.add(lblid);
-		*/
 		SimpleDateFormat sekil = new SimpleDateFormat("d/M/y");	
         Date now = new Date();
 		JLabel lbltarih = new JLabel(sekil.format(now).toString());
