@@ -5,7 +5,6 @@ public class DoktorList {
 	private String name,surname;
 	VeriTabani vt = new VeriTabani();
 	
-	
 	public DoktorList(int id, String name, String surname) {
 		super();
 		this.id = id;

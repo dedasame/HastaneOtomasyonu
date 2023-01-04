@@ -16,7 +16,6 @@ import java.awt.event.ActionEvent;
 
 public class HastaEkrani extends JFrame {
 	
-	
 	static Hasta hasta = new Hasta();
 	
 	private JPanel contentPane;

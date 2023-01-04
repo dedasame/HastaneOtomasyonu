@@ -23,9 +23,6 @@ public class Bolum {
 	public void setNamebolum(String namebolum) {
 		this.namebolum = namebolum;
 	}
-	
-	
-	
-	
+
 	
 }

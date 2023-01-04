@@ -25,6 +25,7 @@ public class VeriTabani {
 		}
 		return c;
 	}	
+	
 }
 	
 		

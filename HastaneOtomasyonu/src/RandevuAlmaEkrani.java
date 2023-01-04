@@ -188,7 +188,6 @@ public class RandevuAlmaEkrani extends JFrame {
 		dateChooser.setBounds(348, 123, 195, 36);
 		contentPane.add(dateChooser);
 		
-
 		
 	}
 }

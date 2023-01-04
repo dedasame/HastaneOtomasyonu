@@ -29,7 +29,6 @@ public class GirisEkrani extends JFrame{
 	private JPasswordField passdoktor;
 	private VeriTabani vt = new VeriTabani();
 	
-	
 	/**
 	 * Launch the application.
 	 */

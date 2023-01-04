@@ -107,7 +107,6 @@ public class YeniHastaEkrani extends JFrame {
 				HastaEkrani a = new HastaEkrani(hasta);
 				a.setVisible(true);
 				dispose();
-				
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));

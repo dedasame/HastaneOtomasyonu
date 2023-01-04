@@ -9,7 +9,6 @@ public class Doktor extends Kullanici{
 	Connection c = vt.baglan();
 	Statement st = null;
 	ResultSet rs = null;
-
 	
 	public Doktor(int id, String name, String surname, String tc, String pass) {
 		super(id, name, surname, tc, pass);

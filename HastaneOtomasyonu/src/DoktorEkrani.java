@@ -209,9 +209,7 @@ public class DoktorEkrani extends JFrame {
 		lbltarih.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lbltarih.setBounds(463, 10, 113, 39);
 		contentPane.add(lbltarih);
-		
-		
-		
+
 		
 	}
 }

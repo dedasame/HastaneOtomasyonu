@@ -47,5 +47,4 @@ public class Kullanici {
 		this.pass = pass;
 	}
 	
-	
 }

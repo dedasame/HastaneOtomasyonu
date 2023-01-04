@@ -109,8 +109,7 @@ public class BilgiGuncellemeEkrani extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				HastaEkrani a = new HastaEkrani(hasta);
 				a.setVisible(true);
-				dispose();
-				
+				dispose();		
 			}
 		});
 		geriButonu.setFont(new Font("Tahoma", Font.PLAIN, 16));
