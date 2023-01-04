@@ -97,6 +97,7 @@ public class HastaEkrani extends JFrame {
 		btnNewButton_2.setBounds(188, 196, 209, 46);
 		contentPane.add(btnNewButton_2);
 		
+		/*
 		JButton btnNewButton_3 = new JButton("Randevularım");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -119,7 +120,7 @@ public class HastaEkrani extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		
-		
+		*/
 		
 		
 	}

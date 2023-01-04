@@ -127,7 +127,7 @@ public class DoktorEkrani extends JFrame {
 		
 		
 		//Hata var. Girilen kimlikteki hastayi cekemiyor
-		
+		/*
 		JPanel Randevular = new JPanel();
 		Randevular.setBackground(new Color(255, 255, 255));
 		tabbedPane.addTab("Hasta Bilgileri", null, Randevular, null);
@@ -186,7 +186,8 @@ public class DoktorEkrani extends JFrame {
 		lbltarih.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lbltarih.setBounds(463, 10, 113, 39);
 		contentPane.add(lbltarih);
-
+		
+		*/
 		
 	}
 }
