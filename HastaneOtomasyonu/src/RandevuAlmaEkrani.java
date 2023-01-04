@@ -4,11 +4,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RandevuAlmaEkrani extends JFrame {
 	
@@ -24,7 +29,7 @@ public class RandevuAlmaEkrani extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RandevuAlmaEkrani frame = new RandevuAlmaEkrani();
+					RandevuAlmaEkrani frame = new RandevuAlmaEkrani(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,8 +40,9 @@ public class RandevuAlmaEkrani extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws SQLException 
 	 */
-	public RandevuAlmaEkrani() {
+	public RandevuAlmaEkrani(Hasta hasta) throws SQLException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 475);
 		contentPane = new JPanel();
@@ -69,12 +75,17 @@ public class RandevuAlmaEkrani extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JComboBox bolumler = new JComboBox();
-		bolumler.setToolTipText("Randevu almak istediginiz bolumu secin");
 		bolumler.setBounds(10, 123, 214, 36);
+		for(int i =0 ; i<3;i++) {
+			bolumler.addItem(hasta.getBolumList().get(i).getNamebolum());
+		}
 		contentPane.add(bolumler);
 		
 		JComboBox doktorlar = new JComboBox();
 		doktorlar.setBounds(10, 228, 214, 36);
+		for(int i =0 ; i<3;i++) {
+			doktorlar.addItem(hasta.getDoktorList().get(i).getName()+" "+hasta.getDoktorList().get(i).getSurname());
+		}
 		contentPane.add(doktorlar);
 		
 		JComboBox comboBox = new JComboBox();
@@ -86,6 +97,24 @@ public class RandevuAlmaEkrani extends JFrame {
 		contentPane.add(comboBox_1);
 		
 		JButton btnNewButton_2 = new JButton("Randevu Al");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//secilen verilerden randevu verileck	
+				int indexbolum = bolumler.getSelectedIndex(); //bolum index 0'dan basliyor!!
+				int indexdoktor = doktorlar.getSelectedIndex(); //doktor index
+				
+				if(indexbolum>=0 && indexdoktor>=0) {
+				
+					
+					
+				}
+				
+				else {
+					JOptionPane.showMessageDialog(null,"Lutfen tum alanlari doldurun!");	
+				}		
+				
+			}
+		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_2.setBounds(211, 328, 190, 45);
 		contentPane.add(btnNewButton_2);

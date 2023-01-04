@@ -15,7 +15,7 @@ public class BilgiGuncellemeEkrani extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BilgiGuncellemeEkrani frame = new BilgiGuncellemeEkrani();
+					BilgiGuncellemeEkrani frame = new BilgiGuncellemeEkrani(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -27,7 +27,7 @@ public class BilgiGuncellemeEkrani extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public BilgiGuncellemeEkrani() {
+	public BilgiGuncellemeEkrani(Hasta hasta) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

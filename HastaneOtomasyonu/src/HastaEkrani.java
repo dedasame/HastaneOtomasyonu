@@ -14,6 +14,9 @@ import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 
 public class HastaEkrani extends JFrame {
 	
@@ -71,6 +74,17 @@ public class HastaEkrani extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Randevu Al");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RandevuAlmaEkrani rae = new RandevuAlmaEkrani(hasta);
+					rae.setVisible(true);
+					dispose();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				} 
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.setBounds(188, 116, 209, 46);
 		contentPane.add(btnNewButton);
@@ -81,6 +95,15 @@ public class HastaEkrani extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Bilgilerimi Güncelle");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				BilgiGuncellemeEkrani bge = new BilgiGuncellemeEkrani(hasta);
+				bge.setVisible(true);
+				dispose();
+				
+			}
+		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_2.setBounds(188, 196, 209, 46);
 		contentPane.add(btnNewButton_2);

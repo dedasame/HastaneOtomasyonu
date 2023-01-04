@@ -136,6 +136,7 @@ public class GirisEkrani extends JFrame{
 			//kodda hata var??
 			//tc ve sifreyi dogrula
 			//isim ve soyisim bossa yenihastaekrani degilse hasta ekranina gonder
+			*/
 			
 			try {
 				Connection baglanti = vt.baglan();
@@ -174,7 +175,7 @@ public class GirisEkrani extends JFrame{
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-			*/
+			
 			
 			
 			}
