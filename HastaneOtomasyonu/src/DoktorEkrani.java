@@ -115,7 +115,7 @@ public class DoktorEkrani extends JFrame {
 		
 		JPanel Hastalar = new JPanel();
 		Hastalar.setBackground(new Color(255, 255, 255));
-		tabbedPane.addTab("Hastalar", null, Hastalar, null);
+		tabbedPane.addTab("Randevusu Olan Hastalar", null, Hastalar, null);
 		Hastalar.setLayout(null);
 		
 		JScrollPane scrollHastalar = new JScrollPane();

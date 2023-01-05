@@ -11,13 +11,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class HastaEkrani extends JFrame {
 	
 	static Hasta hasta = new Hasta();
-	
+	VeriTabani vt = new VeriTabani();
 	private JPanel contentPane;
 
 	/**
@@ -79,6 +82,13 @@ public class HastaEkrani extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("ÇIKIŞ");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GirisEkrani a = new GirisEkrani();
+				a.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(408, 369, 168, 46);
 		contentPane.add(btnNewButton_1);
@@ -96,6 +106,32 @@ public class HastaEkrani extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_2.setBounds(188, 196, 209, 46);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnRandevuyuSil = new JButton("Randevuyu Sil");
+		btnRandevuyuSil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				//hastanin veri tabanindaki doktorid ve bolumid degistirilecek
+				String sql = "UPDATE hasta SET bolumid = ?, doktorid = ? WHERE tchasta = "+hasta.getTc();
+				Connection c = vt.baglan();
+				try {
+					Statement st = c.createStatement();
+					PreparedStatement ps = c.prepareStatement(sql);
+					ps.setInt(1, 0);
+					ps.setInt(2, 0);
+					ps.executeUpdate();
+					
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				
+				
+				
+			}
+		});
+		btnRandevuyuSil.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnRandevuyuSil.setBounds(188, 274, 209, 46);
+		contentPane.add(btnRandevuyuSil);
 		
 		/*
 		JButton btnNewButton_3 = new JButton("Randevularım");

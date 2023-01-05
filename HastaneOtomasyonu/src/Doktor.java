@@ -25,7 +25,7 @@ public class Doktor extends Kullanici{
 		Kullanici obj;
 		try {
 			st = c.createStatement();      //WHERE doktorid = 1
-			rs = st.executeQuery("SELECT * FROM hasta");
+			rs = st.executeQuery("SELECT * FROM hasta WHERE bolumid != 0");
 			
 			while(rs.next()) {
 				obj = new Kullanici(rs.getInt("idhasta"),rs.getString("namehasta"),
