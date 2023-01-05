@@ -71,10 +71,10 @@ public class DoktorEkrani extends JFrame {
 		hastamodel.setColumnIdentifiers(satir);
 		hastaData = new Object[3];
 		
-		for(int i=0;i<doc.getHastaList().size();i++) {
-			hastaData[0] = doc.getHastaList().get(i).getId();
-			hastaData[1] = doc.getHastaList().get(i).getName();
-			hastaData[2] = doc.getHastaList().get(i).getSurname();
+		for(int i=0;i<doc.getHastaList(doc).size();i++) {
+			hastaData[0] = doc.getHastaList(doc).get(i).getId();
+			hastaData[1] = doc.getHastaList(doc).get(i).getName();
+			hastaData[2] = doc.getHastaList(doc).get(i).getSurname();
 			hastamodel.addRow(hastaData);
 		}
 		

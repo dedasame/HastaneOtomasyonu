@@ -17,7 +17,7 @@ public class Doktor extends Kullanici{
 	public Doktor() {}		
 	
 	//Hastalarin listesi
-	public ArrayList<Kullanici> getHastaList() throws SQLException{
+	public ArrayList<Kullanici> getHastaList(Doktor doc) throws SQLException{
 		
 		
 		ArrayList<Kullanici> list = new ArrayList<>();
@@ -25,7 +25,7 @@ public class Doktor extends Kullanici{
 		Kullanici obj;
 		try {
 			st = c.createStatement();      //WHERE doktorid = 1
-			rs = st.executeQuery("SELECT * FROM hasta WHERE bolumid != 0");
+			rs = st.executeQuery("SELECT * FROM hasta WHERE doktorid ="+doc.getId());
 			
 			while(rs.next()) {
 				obj = new Kullanici(rs.getInt("idhasta"),rs.getString("namehasta"),
